@@ -1,6 +1,6 @@
 ARG NODE_VERSION=${NODE_VERSION:-"14"}
 
-FROM mhart/alpine-node:${NODE_VERSION} AS front-builder
+FROM node:${NODE_VERSION}-alpine AS front-builder
 
 # Import project's dependencies
 WORKDIR /app
@@ -15,12 +15,12 @@ COPY . .
 
 RUN yarn build
 
-FROM caddy:2.3.0-rc.1-builder-alpine AS caddy-builder 
+FROM caddy:2.9.1-builder-alpine AS caddy-builder
 
-ARG CADDY_VERSION=${CADDY_VERSION:-"v2.3.0-rc.1"}
+ARG CADDY_VERSION=${CADDY_VERSION:-"v2.9.1"}
 ARG CADDY_PLUGINS=${CADDY_PLUGINS:-"cors,realip,expires,cache,gzip"}
 
-# process wrapper 
+# process wrapper
 RUN go get -v github.com/abiosoft/parent && \
     go install github.com/abiosoft/parent && \
     echo "GOPATH: $GOPATH" && \
@@ -49,14 +49,14 @@ WORKDIR /opt/osat
 # Copy the virtual environment from the previous image
 COPY --from=front-builder /app/build /opt/osat/www
 
-# Install caddy 
+# Install caddy
 COPY --from=caddy-builder /usr/bin/caddy /usr/bin/caddy
 
 COPY Caddyfile /etc/Caddyfile
 COPY --from=caddy-builder /go/bin/parent /bin/parent
 
 # Container configuration
-EXPOSE 3000 80 443 2015 
+EXPOSE 3000 80 443 2015
 VOLUME /opt/osat/www
 
 # Set container labels

@@ -1,4 +1,4 @@
-FROM python:3.13-slim AS builder
+FROM python:3.8-slim AS builder
 
 WORKDIR /opt/app
 
@@ -6,7 +6,7 @@ WORKDIR /opt/app
 RUN apt update
 RUN apt install --no-install-recommends  -y curl git cmake build-essential libgoogle-glog-dev libgflags-dev libeigen3-dev libopencv-dev libboost-dev libboost-all-dev libboost-iostreams-dev libcurl4-openssl-dev protobuf-compiler libopenblas-dev libhdf5-dev libprotobuf-dev libleveldb-dev libsnappy-dev liblmdb-dev libutfcpp-dev wget unzip
 # Update Pip3
-RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade "pip<24.1"
 
 # Install Nodejs and yarn
 RUN rm -rf /var/lib/apt/lists/*
@@ -33,8 +33,7 @@ ENV PATH="/opt/venv/bin:$PATH" \
 COPY requirements.txt .
 
 # Install dependencies into the virtual environment with Pipenv
-RUN python3 -m pip install --upgrade pip
-RUN pip3 --no-cache-dir install -r requirements.txt
+RUN pip3 --no-cache-dir install --upgrade -r requirements.txt
 RUN pip3 install celery
 
 ARG VERSION

@@ -21,8 +21,7 @@ ARG CADDY_VERSION=${CADDY_VERSION:-"v2.9.1"}
 ARG CADDY_PLUGINS=${CADDY_PLUGINS:-"cors,realip,expires,cache,gzip"}
 
 # process wrapper
-RUN go get -v github.com/abiosoft/parent && \
-    go install github.com/abiosoft/parent && \
+RUN go install github.com/abiosoft/parent@latest && \
     echo "GOPATH: $GOPATH" && \
     echo "PATH: $PATH" && \
     which parent

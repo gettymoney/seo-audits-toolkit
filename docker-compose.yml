@@ -2,6 +2,8 @@
 services:
   server:
     image: stangirard/osat-server
+    env_file:
+      - .env
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -141,7 +143,7 @@ services:
     restart: unless-stopped
 
   postgres:
-    image: postgres:17-alpine
+    image: postgres:${POSTGRES_VERSION}-alpine
     container_name: ${NAMESPACE}-postgres
     # ports:
     # - "${POSTGRES_PORT}:${POSTGRES_PORT}"

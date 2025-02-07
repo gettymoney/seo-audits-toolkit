@@ -21,7 +21,7 @@ def lighthouse_crawler():
         accessibility_score = result["categories"]["accessibility"]["score"]
         best_practices_score =result["categories"]["best-practices"]["score"]
         seo_score = result["categories"]["seo"]["score"]
-        pwa_score = result["categories"]["pwa"]["score"]
+        pwa_score = 1
         results_db = Lighthouse_Result(org=item.org,url=item,performance_score=performance_score,
             accessibility_score=accessibility_score, best_practices_score= best_practices_score,
             seo_score=seo_score, pwa_score=pwa_score, timestamp=timezone.now())
@@ -39,7 +39,7 @@ def lighthouse_add_new_url_crawler(url):
     accessibility_score = result["categories"]["accessibility"]["score"]
     best_practices_score =result["categories"]["best-practices"]["score"]
     seo_score = result["categories"]["seo"]["score"]
-    pwa_score = result["categories"]["pwa"]["score"]
+    pwa_score = 1
     results_db = Lighthouse_Result(org=Lighthouse_Object.org,url=Lighthouse_Object,performance_score=performance_score,
         accessibility_score=accessibility_score, best_practices_score= best_practices_score,
         seo_score=seo_score, pwa_score=pwa_score, timestamp=timezone.now())
@@ -50,5 +50,5 @@ def lighthouse_add_new_url_crawler(url):
 
 def run_lighthouse(url):
     proc=subprocess.Popen("lighthouse --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage ' "+ url + " --output json", stdout=subprocess.PIPE, shell=True)
-    result = proc.stdout.read().decode("utf-8") 
+    result = proc.stdout.read().decode("utf-8")
     return result

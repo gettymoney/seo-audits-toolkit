@@ -1,4 +1,3 @@
-import { WebsiteList } from './websiteList'
+import { WebsiteList } from "./websiteList";
 
-
-export { WebsiteList }
+export { WebsiteList };

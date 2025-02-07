@@ -1,13 +1,10 @@
 import * as React from "react";
-import { Datagrid, DateField, List, ShowButton, TextField } from 'react-admin';
-import MyUrlField from '../custom/fields/urlField';
-import { LighthouseResultsFilter} from './lighthouseFilter'
-
+import { Datagrid, DateField, List, ShowButton, TextField } from "react-admin";
+import MyUrlField from "../custom/fields/urlField";
+import { LighthouseResultsFilter } from "./lighthouseFilter";
 
 export const LighthouseResultsList = (props) => (
-  <List {...props}
-  filters={<LighthouseResultsFilter />}
-  >
+  <List {...props} filters={<LighthouseResultsFilter />}>
     <Datagrid>
       <MyUrlField source="url" />
       <TextField source="accessibility_score" />
@@ -15,9 +12,8 @@ export const LighthouseResultsList = (props) => (
       <TextField source="performance_score" />
       <TextField source="pwa_score" />
       <TextField source="seo_score" />
-      <DateField source="timestamp"  showTime="true" />
+      <DateField source="timestamp" showTime="true" />
       <ShowButton />
     </Datagrid>
   </List>
 );
-

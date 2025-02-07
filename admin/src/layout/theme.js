@@ -1,7 +1,7 @@
-import { defaultTheme } from "react-admin";
+import { defaultTheme, defaultDarkTheme } from "react-admin";
 import { deepmerge } from "@mui/utils";
 
-export const darkTheme = deepmerge(defaultTheme, {
+export const darkTheme = deepmerge(defaultDarkTheme, {
   palette: {
     primary: {
       main: "#90caf9",

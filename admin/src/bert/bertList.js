@@ -1,19 +1,14 @@
 import * as React from "react";
-import { List,ShowButton,  DeleteButton,Datagrid, TextField, DateField, EditButton } from 'react-admin';
-import MyUrlField from '../custom/fields/urlField';
-
-
+import { List, ShowButton, DeleteButton, Datagrid, TextField, DateField } from "react-admin";
 
 export const BertList = (props) => (
-  <List {...props}
-    >
+  <List {...props}>
     <Datagrid>
-      <TextField source="summary"  label="Summary" />
-      <TextField source="status_job"  label="Result" />
-      <DateField source="begin_date"  label="Date"/>
+      <TextField source="summary" label="Summary" />
+      <TextField source="status_job" label="Result" />
+      <DateField source="begin_date" label="Date" />
       <ShowButton />
-      <DeleteButton undoable={true} />
+      <DeleteButton />
     </Datagrid>
   </List>
 );
-

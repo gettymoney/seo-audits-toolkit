@@ -1,6 +1,6 @@
 import drfProvider from "ra-data-django-rest-framework";
 import React from "react";
-import { Admin, EditGuesser, fetchUtils, ListGuesser, Resource } from "react-admin";
+import { Admin, fetchUtils, Resource } from "react-admin";
 import authProviderDjango from "./authProvider";
 import { ExtractorCreate, ExtractorList, ExtractorShow, ExtractorEdit } from "./extractor";
 import { Layout } from "./layout";
@@ -29,7 +29,7 @@ const App = () => (
     layout={Layout}
     dashboard={Dashboard}
     authProvider={authProviderDjango}
-    dataProvider={drfProvider("http://localhost:8000/api", fetchJson)}
+    dataProvider={drfProvider("/api", fetchJson)}
     theme={lightTheme}
     darkTheme={darkTheme}
   >

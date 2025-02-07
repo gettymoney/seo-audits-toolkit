@@ -1,11 +1,12 @@
 import * as React from "react";
-import { UrlField } from "react-admin";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
-const ExternalUrlField = ({ source, record }) => {
+const ExternalLink = ({ href, title, children }) => {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <UrlField source={source} target="_blank" rel="noopener noreferrer" record={record} />
+      <a href={href} title={title} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
       <OpenInNewIcon
         fontSize="small"
         titleAccess="Opens in a new tab"
@@ -16,4 +17,4 @@ const ExternalUrlField = ({ source, record }) => {
   );
 };
 
-export default ExternalUrlField;
+export default ExternalLink;

@@ -3,21 +3,19 @@ import {
   DeleteButton,
   ArrayField,
   Datagrid,
-  UrlField,
   BooleanField,
   EditButton,
   Show,
   SimpleShowLayout,
   TextField,
 } from "react-admin";
-import MyUrlField from "../custom/fields/urlField";
-import { green } from "@mui/material/colors";
+import ExternalUrlField from "../custom/fields/urlField";
 
 export const SecurityResultsShow = (props) => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <MyUrlField source="url" />
+        <ExternalUrlField source="url" />
         <TextField source="score" />
         <ArrayField source="result.tests" fieldKey="name">
           <Datagrid>

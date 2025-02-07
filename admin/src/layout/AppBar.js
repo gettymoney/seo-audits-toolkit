@@ -28,16 +28,11 @@ const ConfigurationMenu = forwardRef((props, ref) => {
       primaryText="Configuration"
       leftIcon={<SettingsIcon />}
       onClick={props.onClick}
-      sidebarIsOpen
     />
   );
 });
 
-const CustomUserMenu = (props) => (
-  <UserMenu {...props}>
-    <ConfigurationMenu />
-  </UserMenu>
-);
+const CustomUserMenu = (props) => <UserMenu {...props}>{/* <ConfigurationMenu /> */}</UserMenu>;
 
 const CustomAppBar = (props) => {
   const classes = useStyles();

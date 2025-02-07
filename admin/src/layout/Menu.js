@@ -13,7 +13,7 @@ import { useState } from "react";
 import { DashboardMenuItem, MenuItemLink, useSidebarState } from "react-admin";
 import { SubMenu } from "./SubMenu";
 import SecurityIcon from "@mui/icons-material/Security";
-import { green, red, blue, yellow, purple } from "@mui/material/colors";
+import { green, red, blue, yellow } from "@mui/material/colors";
 import CreateIcon from "@mui/icons-material/Create";
 
 const Menu = ({ onMenuClick, logout, dense = false }) => {
@@ -32,8 +32,7 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
 
   return (
     <Box mt={1}>
-      {" "}
-      <DashboardMenuItem onClick={onMenuClick} sidebarIsOpen={open} />
+      <DashboardMenuItem onClick={onMenuClick} />
       <SubMenu
         handleToggle={() => handleToggle("menuOrgs")}
         isOpen={state.menuOrgs}
@@ -47,7 +46,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Websites"
           leftIcon={<DomainIcon style={{ color: green[300] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
       </SubMenu>
@@ -64,7 +62,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Lighthouse"
           leftIcon={<LanguageIcon style={{ color: yellow[800] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
         <MenuItemLink
@@ -72,7 +69,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Results"
           leftIcon={<PlaylistAddCheckIcon style={{ color: yellow[700] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
       </SubMenu>
@@ -89,7 +85,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Sitemap"
           leftIcon={<MapIcon style={{ color: blue["A700"] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
         <MenuItemLink
@@ -97,7 +92,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Images, Links, Headers"
           leftIcon={<LinkIcon style={{ color: blue[700] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
         <MenuItemLink
@@ -105,7 +99,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Yake"
           leftIcon={<MyLocationIcon style={{ color: blue[600] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
 
@@ -114,7 +107,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Summarizer"
           leftIcon={<CreateIcon style={{ color: blue[500] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
       </SubMenu>
@@ -131,7 +123,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Security"
           leftIcon={<SecurityIcon style={{ color: red[300] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
         <MenuItemLink
@@ -139,7 +130,6 @@ const Menu = ({ onMenuClick, logout, dense = false }) => {
           primaryText="Results"
           leftIcon={<PlaylistAddCheckIcon style={{ color: red[200] }} />}
           onClick={onMenuClick}
-          sidebarIsOpen={open}
           dense={dense}
         />
       </SubMenu>

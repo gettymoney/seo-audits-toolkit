@@ -1,5 +1,5 @@
 import { useMediaQuery } from "@mui/material";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDataProvider } from "react-admin";
 import Welcome from "./Welcome";
 
@@ -11,11 +11,7 @@ const styles = {
   singleCol: { marginTop: "1em", marginBottom: "1em" },
 };
 
-const Spacer = () => <span style={{ width: "1em" }} />;
-const VerticalSpacer = () => <span style={{ height: "1em" }} />;
-
 export const Dashboard = () => {
-  const [state, setState] = useState({});
   const dataProvider = useDataProvider();
   const isXSmall = useMediaQuery((theme) => theme.breakpoints.down("xs"));
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down("md"));

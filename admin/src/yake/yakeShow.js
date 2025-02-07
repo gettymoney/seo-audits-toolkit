@@ -7,7 +7,6 @@ import {
   Show,
   SimpleShowLayout,
   TextField,
-  IntegerField,
 } from "react-admin";
 // import { DataGrid } from '@material-ui/data-grid';
 
